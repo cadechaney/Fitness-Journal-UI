@@ -13,9 +13,27 @@ function App() {
     )
   }, [])
 
+  const postRequest = () => {
+    fetch('/stuff', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({stuff: 'post'})
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log('Response', result)
+    })
+    .catch(error => {
+      console.log('Error', error)
+    })
+  }
+
   return (
     <div className="App">
       <p>Hello world</p>
+      <button onClick={postRequest}>Post Request</button>
     </div>
   );
 }
