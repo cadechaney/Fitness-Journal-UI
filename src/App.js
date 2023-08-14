@@ -1,17 +1,15 @@
 import './App.css';
 import React, { useEffect, useState } from 'react'
+import { fetchWorkouts, addWorkout, deleteWorkoutAPI } from './apiCalls'
 
 function App() {
 
   const [workouts, setWorkouts] = useState([])
 
   useEffect(() => {
-    fetch("/stuff").then(
-      response => response.json()
-    ).then(
-      data => {
-        console.log(data.workouts)
-        setWorkouts(data.workouts)
+    fetchWorkouts()
+      .then(data => {
+        setWorkouts(data)
       })
       .catch(error => {
         console.log('Error fetching data', error)
@@ -21,21 +19,14 @@ function App() {
   const postRequest = () => {
     const newObject = { title: 'New Workout', date: '01-04-2023', description: '...', extra: '...' };
 
-    fetch('/stuff', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ newWorkout: newObject }),
-    })
-      .then(response => response.json())
+    addWorkout(newObject)
       .then(data => {
-        console.log('Response', data);
-        setWorkouts(data.workouts);
+        console.log('Response', data)
+        setWorkouts(data.workouts)
       })
       .catch(error => {
-        console.log('Error', error);
-      });
+        console.log('Error', error)
+      })
   };
 
   const deleteWorkout = (index) => {
@@ -43,23 +34,19 @@ function App() {
     const updatedWorkouts = workouts.filter((_, i) => i !== index);
     setWorkouts(updatedWorkouts);
 
-    fetch(`/stuff/${index}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(response => {
-        if (response.ok) {
-          console.log(`Workout at index ${index} deleted successfully.`);
-          // You might want to update your state or UI accordingly here
+    deleteWorkoutAPI(index)
+      .then(success => {
+        if(success) {
+          console.log(`Workout at index ${index} deleted successfully`)
         } else {
-          console.log('Failed to delete workout.');
+          console.log('Failed to delete workout')
+          setWorkouts(workouts)
         }
       })
       .catch(error => {
-        console.error('Error deleting workout:', error);
-      });
+        console.error('Error deleting workout:', error)
+        setWorkouts(workouts)
+      })
   }
   
   return (
