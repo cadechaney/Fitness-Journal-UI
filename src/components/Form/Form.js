@@ -5,8 +5,11 @@ function Form({ postRequest }) {
 
   return (
     <div className='form-container'>
-      <button onClick={postRequest}>Post Request</button>
-      <p>Form</p>
+      <input type='text' name='title' placeholder='Workout Title'></input>
+      <input type='date' name='date' ></input>
+      <input type='text' name='description' placeholder='Workout Description'></input>
+      <input type='text' name='extra' placeholder='Extra Notes'></input>
+      <button onClick={postRequest}>Log Workout</button>
     </div>
   )
 }
