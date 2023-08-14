@@ -10,8 +10,11 @@ function scrollWorkout({ workouts, deleteWorkout }) {
         <section>
           {workouts.map((workout, index) => (
             <div key={index}>
-              <p>{workout.title}</p>
-              <button onClick={() => deleteWorkout(index)}>Delete</button>
+              <section className='workout-info-small'>
+                <p>{workout.title}</p>
+                <p>{workout.date}</p>
+                <button className='delete-workout' onClick={() => deleteWorkout(index)}>Delete</button>
+              </section>
             </div>
           ))}
         </section>
