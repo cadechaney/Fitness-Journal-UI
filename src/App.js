@@ -1,30 +1,30 @@
 import './App.css';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function App() {
+
+  const [workouts, setWorkouts] = useState([])
 
   useEffect(() => {
     fetch("/stuff").then(
       response => response.json()
     ).then(
       data => {
-        console.log(data.workouts)
-      }
-    )
+        console.log(data.workouts.stuff)
+        setWorkouts(data.workouts.stuff)
+      })
+      .catch(error => {
+        console.log('Error fetching data', error)
+      })
   }, [])
 
   const postRequest = () => {
-    // Fetch the current data first to have the current state of "stuff" array
     fetch("/stuff")
       .then(response => response.json())
       .then(data => {
-        // Create a new object to add to the "stuff" array
-        const newObject = { key: 'value' }; // Replace with your new object data
-  
-        // Add the new object to the "stuff" array
+        const newObject = { key: 'value' }; 
         const updatedStuff = [...data.workouts.stuff, newObject];
   
-        // Send the updated data to the server
         fetch('/stuff', {
           method: 'POST',
           headers: {
@@ -50,14 +50,47 @@ function App() {
         console.log('Error fetching current data', error);
       });
   };
-  
 
+  const deleteWorkout = (index) => {
+    fetch(`/stuff/${index}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        if (response.ok) {
+          console.log(`Workout at index ${index} deleted successfully.`);
+          // You might want to update your state or UI accordingly here
+        } else {
+          console.log('Failed to delete workout.');
+        }
+      })
+      .catch(error => {
+        console.error('Error deleting workout:', error);
+      });
+  }
+  
   return (
     <div className="App">
       <p>Hello world</p>
       <button onClick={postRequest}>Post Request</button>
+      {workouts.length > 0 ? (
+        <section>
+          {workouts.map((workout, index) => (
+            <div key={index}>
+              <p>{workout.key}</p>
+              <button onClick={() => deleteWorkout(index)}>Delete</button>
+            </div>
+          ))}
+        </section>
+      ) : (
+        <p>{workouts.length === 0 ? "Loading workouts..." : "No workouts available"}</p>
+      )}
     </div>
   );
+  
+  
 }
 
 export default App;
