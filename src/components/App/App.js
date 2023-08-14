@@ -2,6 +2,7 @@ import './App.css';
 import React, { useEffect, useState } from 'react'
 import { fetchWorkouts, addWorkout, deleteWorkoutAPI } from '../../apiCalls'
 import ScrollWorkout from '../scrollWorkouts/scrollWorkouts'
+import Form from '../Form/Form'
 
 function App() {
 
@@ -17,8 +18,11 @@ function App() {
       })
   }, [])
 
-  const postRequest = () => {
-    const newObject = { title: 'New Workout', date: '01-04-2023', description: '...', extra: '...' };
+  const postRequest = (newObject) => {
+    if(!newObject.title || !newObject.date || !newObject.description) {
+      alert('Please fill in all required fields')
+      return
+    }
 
     addWorkout(newObject)
       .then(data => {
@@ -52,8 +56,7 @@ function App() {
   
   return (
     <div className="App">
-      <p>Hello world</p>
-      <button onClick={postRequest}>Post Request</button>
+      <Form postRequest={postRequest}/>
       <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} />
     </div>
   );

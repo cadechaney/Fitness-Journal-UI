@@ -1,0 +1,17 @@
+.form-container {
+  height: 30vh;
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 2px solid blue;
+} 
+
+input {
+  width: 60%;
+}
+
+.post-button {
+  width: 60%;
+}
