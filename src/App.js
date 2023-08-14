@@ -1,7 +1,9 @@
 import './App.css';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function App() {
+
+  const [workouts, setWorkouts] = useState([])
 
   useEffect(() => {
     fetch("/stuff").then(
@@ -9,6 +11,7 @@ function App() {
     ).then(
       data => {
         console.log(data.workouts)
+        setWorkouts(data.workouts)
       }
     )
   }, [])
