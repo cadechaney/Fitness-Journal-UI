@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react'
-import { fetchWorkouts, addWorkout, deleteWorkoutAPI } from './apiCalls'
+import { fetchWorkouts, addWorkout, deleteWorkoutAPI } from '../../apiCalls'
+import ScrollWorkout from '../scrollWorkouts/scrollWorkouts'
 
 function App() {
 
@@ -53,18 +54,7 @@ function App() {
     <div className="App">
       <p>Hello world</p>
       <button onClick={postRequest}>Post Request</button>
-      {workouts.length > 0 ? (
-        <section>
-          {workouts.map((workout, index) => (
-            <div key={index}>
-              <p>{workout.title}</p>
-              <button onClick={() => deleteWorkout(index)}>Delete</button>
-            </div>
-          ))}
-        </section>
-      ) : (
-        <p>{workouts.length === 0 ? "Loading workouts..." : "No workouts available"}</p>
-      )}
+      <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} />
     </div>
   );
   

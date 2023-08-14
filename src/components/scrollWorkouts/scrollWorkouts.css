@@ -1,0 +1,17 @@
+
+.scrollWorkout-container {
+  height: 20vh;
+  width: 20vw;
+  overflow: auto;
+  border: 2px solid red;
+}
+
+.workout-info-small {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.delete-workout {
+  height: 70%;
+}
