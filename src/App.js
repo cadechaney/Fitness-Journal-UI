@@ -10,8 +10,8 @@ function App() {
       response => response.json()
     ).then(
       data => {
-        console.log(data.workouts.stuff)
-        setWorkouts(data.workouts.stuff)
+        console.log(data.workouts)
+        setWorkouts(data.workouts)
       })
       .catch(error => {
         console.log('Error fetching data', error)
@@ -19,35 +19,22 @@ function App() {
   }, [])
 
   const postRequest = () => {
-    fetch("/stuff")
+    const newObject = { title: 'New Workout', date: '01-04-2023', description: '...', extra: '...' };
+
+    fetch('/stuff', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ newWorkout: newObject }),
+    })
       .then(response => response.json())
       .then(data => {
-        const newObject = { key: 'value' }; 
-        const updatedStuff = [...data.workouts.stuff, newObject];
-  
-        fetch('/stuff', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ workouts: { stuff: updatedStuff } })
-        })
-          .then(response => {
-            if (response.ok) {
-              return response.json();
-            } else {
-              console.log('Broken');
-            }
-          })
-          .then(result => {
-            console.log('Response', result);
-          })
-          .catch(error => {
-            console.log('Error', error);
-          });
+        console.log('Response', data);
+        setWorkouts(data.workouts);
       })
       .catch(error => {
-        console.log('Error fetching current data', error);
+        console.log('Error', error);
       });
   };
 
@@ -79,7 +66,7 @@ function App() {
         <section>
           {workouts.map((workout, index) => (
             <div key={index}>
-              <p>{workout.key}</p>
+              <p>{workout.title}</p>
               <button onClick={() => deleteWorkout(index)}>Delete</button>
             </div>
           ))}
