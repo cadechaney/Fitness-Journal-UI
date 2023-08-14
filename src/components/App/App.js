@@ -2,6 +2,7 @@ import './App.css';
 import React, { useEffect, useState } from 'react'
 import { fetchWorkouts, addWorkout, deleteWorkoutAPI } from '../../apiCalls'
 import ScrollWorkout from '../scrollWorkouts/scrollWorkouts'
+import Form from '../Form/Form'
 
 function App() {
 
@@ -52,8 +53,7 @@ function App() {
   
   return (
     <div className="App">
-      <p>Hello world</p>
-      <button onClick={postRequest}>Post Request</button>
+      <Form postRequest={postRequest}/>
       <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} />
     </div>
   );
