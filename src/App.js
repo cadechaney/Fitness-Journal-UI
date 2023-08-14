@@ -19,17 +19,12 @@ function App() {
   }, [])
 
   const postRequest = () => {
-    // Fetch the current data first to have the current state of "stuff" array
     fetch("/stuff")
       .then(response => response.json())
       .then(data => {
-        // Create a new object to add to the "stuff" array
-        const newObject = { key: 'value' }; // Replace with your new object data
-  
-        // Add the new object to the "stuff" array
+        const newObject = { key: 'value' }; 
         const updatedStuff = [...data.workouts.stuff, newObject];
   
-        // Send the updated data to the server
         fetch('/stuff', {
           method: 'POST',
           headers: {
@@ -56,11 +51,9 @@ function App() {
       });
   };
 
-  const hardcodedWorkouts = [
-    { key: 'this' },
-    { key: 'that' },
-    { key: 'Another' }
-  ];
+  const deleteWorkout = (value) => {
+    console.log(value)
+  }
   
   return (
     <div className="App">
@@ -69,7 +62,10 @@ function App() {
       {workouts.length > 0 ? (
         <section>
           {workouts.map((workout, index) => (
-            <p key={index}>{workout.key}</p>
+            <div key={index}>
+              <p>{workout.key}</p>
+              <button onClick={() => deleteWorkout(index)}>Delete</button>
+            </div>
           ))}
         </section>
       ) : (
