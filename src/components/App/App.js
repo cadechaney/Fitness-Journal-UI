@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useEffect, useState } from 'react'
-import { fetchWorkouts, addWorkout, deleteWorkoutAPI } from './apiCalls'
+import { fetchWorkouts, addWorkout, deleteWorkoutAPI } from '../../apiCalls'
 
 function App() {
 
