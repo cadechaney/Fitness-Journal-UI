@@ -39,6 +39,10 @@ function App() {
   };
 
   const deleteWorkout = (index) => {
+
+    const updatedWorkouts = workouts.filter((_, i) => i !== index);
+    setWorkouts(updatedWorkouts);
+
     fetch(`/stuff/${index}`, {
       method: 'DELETE',
       headers: {
