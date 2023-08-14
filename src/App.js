@@ -10,10 +10,12 @@ function App() {
       response => response.json()
     ).then(
       data => {
-        console.log(data.workouts)
-        setWorkouts(data.workouts)
-      }
-    )
+        console.log(data.workouts.stuff)
+        setWorkouts(data.workouts.stuff)
+      })
+      .catch(error => {
+        console.log('Error fetching data', error)
+      })
   }, [])
 
   const postRequest = () => {
@@ -53,14 +55,30 @@ function App() {
         console.log('Error fetching current data', error);
       });
   };
-  
 
+  const hardcodedWorkouts = [
+    { key: 'this' },
+    { key: 'that' },
+    { key: 'Another' }
+  ];
+  
   return (
     <div className="App">
       <p>Hello world</p>
       <button onClick={postRequest}>Post Request</button>
+      {workouts.length > 0 ? (
+        <section>
+          {workouts.map((workout, index) => (
+            <p key={index}>{workout.key}</p>
+          ))}
+        </section>
+      ) : (
+        <p>{workouts.length === 0 ? "Loading workouts..." : "No workouts available"}</p>
+      )}
     </div>
   );
+  
+  
 }
 
 export default App;
