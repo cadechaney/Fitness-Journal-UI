@@ -58,8 +58,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Form postRequest={postRequest}/>
-      <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} />
+      <div className='app-content'>
+        <Form postRequest={postRequest}/>
+        <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} />
+      </div>
     </div>
   );
   
