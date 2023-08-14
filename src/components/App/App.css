@@ -1,1 +1,8 @@
 
+.app-content {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
