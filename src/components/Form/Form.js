@@ -44,7 +44,7 @@ function Form({ postRequest }) {
         value={formData.extra}
         onChange={handleInputChange}>
       </input>
-      <button onClick={() => postRequest(formData)}>Log Workout</button>
+      <button className='post-button' onClick={() => postRequest(formData)}>Log Workout</button>
     </div>
   )
 }

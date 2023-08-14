@@ -19,7 +19,10 @@ function App() {
   }, [])
 
   const postRequest = (newObject) => {
-    // const newObject = { title: 'New Workout', date: '01-04-2023', description: '...', extra: '...' };
+    if(!newObject.title || !newObject.date || !newObject.description) {
+      alert('Please fill in all required fields')
+      return
+    }
 
     addWorkout(newObject)
       .then(data => {
