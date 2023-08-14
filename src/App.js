@@ -51,8 +51,24 @@ function App() {
       });
   };
 
-  const deleteWorkout = (value) => {
-    console.log(value)
+  const deleteWorkout = (index) => {
+    fetch(`/stuff/${index}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        if (response.ok) {
+          console.log(`Workout at index ${index} deleted successfully.`);
+          // You might want to update your state or UI accordingly here
+        } else {
+          console.log('Failed to delete workout.');
+        }
+      })
+      .catch(error => {
+        console.error('Error deleting workout:', error);
+      });
   }
   
   return (
