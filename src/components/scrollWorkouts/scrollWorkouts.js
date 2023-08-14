@@ -8,7 +8,7 @@ function scrollWorkout({ workouts, deleteWorkout }) {
     <div className='scrollWorkout-container'>
       {workouts.length > 0 ? (
         <section>
-          {workouts.map((workout, index) => (
+          {workouts.slice(0, 7).map((workout, index) => (
             <div key={index}>
               <section className='workout-info-small'>
                 <p>{workout.title}</p>
