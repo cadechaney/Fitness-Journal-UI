@@ -18,8 +18,8 @@ function App() {
       })
   }, [])
 
-  const postRequest = () => {
-    const newObject = { title: 'New Workout', date: '01-04-2023', description: '...', extra: '...' };
+  const postRequest = (newObject) => {
+    // const newObject = { title: 'New Workout', date: '01-04-2023', description: '...', extra: '...' };
 
     addWorkout(newObject)
       .then(data => {
