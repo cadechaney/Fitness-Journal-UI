@@ -15,6 +15,11 @@ function Form({ postRequest }) {
     setFormData((prevData) => ({...prevData, [name]: value}))
   }
 
+  const handleTextareaChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
   const clearInputs = () => {
     setFormData({
       title: '',
@@ -39,13 +44,14 @@ function Form({ postRequest }) {
         value={formData.date}
         onChange={handleInputChange}>
       </input>
-      <input 
-        type='text' 
-        name='description' 
-        placeholder='Workout Description'
+      <textarea
+        name='description'
+        rows={8}
+        cols={30}
         value={formData.description}
-        onChange={handleInputChange}>
-      </input>
+        onChange={handleTextareaChange}
+        placeholder='Write your workout here...'
+      />
       <input 
         type='text' 
         name='extra' 
