@@ -15,6 +15,15 @@ function Form({ postRequest }) {
     setFormData((prevData) => ({...prevData, [name]: value}))
   }
 
+  const clearInputs = () => {
+    setFormData({
+      title: '',
+      date: '',
+      description: '',
+      extra: ''
+    })
+  }
+
   return (
     <div className='form-container'>
       <input 
@@ -44,7 +53,10 @@ function Form({ postRequest }) {
         value={formData.extra}
         onChange={handleInputChange}>
       </input>
-      <button className='post-button' onClick={() => postRequest(formData)}>Log Workout</button>
+      <button className='post-button' onClick={() => {
+        postRequest(formData)
+        clearInputs()
+      }}>Log Workout</button>
     </div>
   )
 }
