@@ -10,30 +10,39 @@ function Form({ postRequest }) {
     extra: ''
   })
 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target
+    setFormData((prevData) => ({...prevData, [name]: value}))
+  }
+
   return (
     <div className='form-container'>
       <input 
         type='text' 
         name='title' 
         placeholder='Workout Title'
-        value={formData.title}>
+        value={formData.title}
+        onChange={handleInputChange}>
       </input>
       <input 
         type='date' 
         name='date' 
-        value={formData.date}>
+        value={formData.date}
+        onChange={handleInputChange}>
       </input>
       <input 
         type='text' 
         name='description' 
         placeholder='Workout Description'
-        value={formData.description}>
+        value={formData.description}
+        onChange={handleInputChange}>
       </input>
       <input 
         type='text' 
         name='extra' 
         placeholder='Extra Notes'
-        value={formData.extra}>
+        value={formData.extra}
+        onChange={handleInputChange}>
       </input>
       <button onClick={() => postRequest(formData)}>Log Workout</button>
     </div>
