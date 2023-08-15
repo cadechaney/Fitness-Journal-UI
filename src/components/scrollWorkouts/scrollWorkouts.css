@@ -14,8 +14,7 @@
 
 .workout-info-small {
   display: flex;
-  /* justify-content: space-around; */
-  /* align-items: center; */
+  align-items: center;
 }
 
 .delete-workout {
@@ -32,7 +31,17 @@
 }
 
 .date-tag {
-  margin-left: 10%;
+  margin-left: 10px;
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden; 
 }
+
+.title-tag-container {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+
 
 
