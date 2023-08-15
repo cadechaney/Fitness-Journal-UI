@@ -11,7 +11,7 @@ function singleWorkout() {
       </div>
       <div className='description-extra'>
         <section className='description-container'>
-          <p>Description</p>
+          <p className='description-text'>Description</p>
         </section>
         <h4>Extra</h4>
       </div>

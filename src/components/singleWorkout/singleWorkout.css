@@ -32,7 +32,7 @@
   justify-content: center;
 }
 
-p {
+.description-text {
   margin: 0;
   word-wrap: break-word;
 }
