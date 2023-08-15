@@ -4,6 +4,7 @@ import { fetchWorkouts, addWorkout, deleteWorkoutAPI } from '../../apiCalls'
 import Header from '../Header/Header'
 import ScrollWorkout from '../scrollWorkouts/scrollWorkouts'
 import Form from '../Form/Form'
+import SingleWorkout from '../singleWorkout/singleWorkout'
 
 function App() {
 
@@ -62,6 +63,7 @@ function App() {
         <Form postRequest={postRequest}/>
         <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} />
       </div>
+      <SingleWorkout />
     </div>
   );
   
