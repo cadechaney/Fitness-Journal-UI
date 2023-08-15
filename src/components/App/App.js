@@ -5,6 +5,7 @@ import Header from '../Header/Header'
 import ScrollWorkout from '../scrollWorkouts/scrollWorkouts'
 import Form from '../Form/Form'
 import SingleWorkout from '../singleWorkout/singleWorkout'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
 
@@ -58,12 +59,21 @@ function App() {
   
   return (
     <div className="App">
-      <Header />
-      <div className='app-content'>
-        <Form postRequest={postRequest}/>
-        <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} />
-      </div>
-      <SingleWorkout />
+      <Routes>
+        <Route 
+          path='/' 
+          element={(
+            <>
+              <Header />
+              <div className='app-content'>
+                <Form postRequest={postRequest}/>
+                <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} />
+              </div>
+            </>
+          )} 
+        />
+        {/* <SingleWorkout /> */}
+      </Routes>
     </div>
   );
   
