@@ -2,7 +2,7 @@ import React from 'react'
 import './scrollWorkouts.css'
 import { NavLink } from 'react-router-dom'
 
-function scrollWorkout({ workouts, deleteWorkout }) {
+function scrollWorkout({ workouts, deleteWorkout, filterWorkout }) {
   
   return (
     <div className='scrollWorkout-container'>
@@ -10,7 +10,7 @@ function scrollWorkout({ workouts, deleteWorkout }) {
         <section>
           {workouts.slice(0, 7).map((workout, index) => (
             <NavLink key={index} to={`/workout/${index}`}>
-              <div key={index}>
+              <div key={index} onClick={() => filterWorkout(index)}>
                 <section className='workout-info-small'>
                   <p>{workout.title}</p>
                   <p>{workout.date}</p>

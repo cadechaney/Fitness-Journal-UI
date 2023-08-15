@@ -56,6 +56,10 @@ function App() {
         setWorkouts(workouts)
       })
   }
+
+  const filterWorkout = (id) => {
+    console.log(id)
+  }
   
   return (
     <div className="App">
@@ -67,13 +71,13 @@ function App() {
               <Header />
               <div className='app-content'>
                 <Form postRequest={postRequest}/>
-                <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} />
+                <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} filterWorkout={filterWorkout} />
               </div>
             </>
           )} 
         />
         <Route 
-          path='/workout'
+          path='/workout/:id'
           element={<SingleWorkout />}
         />
       </Routes>
