@@ -10,6 +10,7 @@ import { Routes, Route } from 'react-router-dom'
 function App() {
 
   const [workouts, setWorkouts] = useState([])
+  const [singleWorkout, setSingleWorkout] = useState()
 
   useEffect(() => {
     fetchWorkouts()
@@ -58,7 +59,9 @@ function App() {
   }
 
   const filterWorkout = (id) => {
-    console.log(id)
+    let singleWorkout = workouts.filter((workout, index) => index === id)
+    setSingleWorkout(singleWorkout)
+    console.log(singleWorkout)
   }
   
   return (
