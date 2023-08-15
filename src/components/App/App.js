@@ -4,10 +4,13 @@ import { fetchWorkouts, addWorkout, deleteWorkoutAPI } from '../../apiCalls'
 import Header from '../Header/Header'
 import ScrollWorkout from '../scrollWorkouts/scrollWorkouts'
 import Form from '../Form/Form'
+import SingleWorkout from '../singleWorkout/singleWorkout'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
 
   const [workouts, setWorkouts] = useState([])
+  const [singleWorkout, setSingleWorkout] = useState()
 
   useEffect(() => {
     fetchWorkouts()
@@ -54,14 +57,33 @@ function App() {
         setWorkouts(workouts)
       })
   }
+
+  const filterWorkout = (id) => {
+    let singleWorkout = workouts.filter((workout, index) => index === id)
+    setSingleWorkout(singleWorkout)
+    console.log(singleWorkout)
+  }
   
   return (
     <div className="App">
-      <Header />
-      <div className='app-content'>
-        <Form postRequest={postRequest}/>
-        <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} />
-      </div>
+      <Routes>
+        <Route 
+          path='/' 
+          element={(
+            <>
+              <Header />
+              <div className='app-content'>
+                <Form postRequest={postRequest}/>
+                <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} filterWorkout={filterWorkout} />
+              </div>
+            </>
+          )} 
+        />
+        <Route 
+          path='/workout/:id'
+          element={<SingleWorkout singleWorkout={singleWorkout} />}
+        />
+      </Routes>
     </div>
   );
   

@@ -6,12 +6,42 @@
   border: 2px solid red;
 }
 
-.workout-info-small {
+.single-scroll-workout {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+}
+
+.workout-info-small {
+  display: flex;
   align-items: center;
 }
 
 .delete-workout {
   height: 70%;
 }
+
+.workout-link {
+  text-decoration: none;
+  color: black;
+}
+
+.workout-link:hover {
+  color: blue;
+}
+
+.date-tag {
+  margin-left: 10px;
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden; 
+}
+
+.title-tag-container {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+
+
+
