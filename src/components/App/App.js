@@ -72,7 +72,10 @@ function App() {
             </>
           )} 
         />
-        {/* <SingleWorkout /> */}
+        <Route 
+          path='/workout'
+          element={<SingleWorkout />}
+        />
       </Routes>
     </div>
   );
