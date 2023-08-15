@@ -81,7 +81,7 @@ function App() {
         />
         <Route 
           path='/workout/:id'
-          element={<SingleWorkout />}
+          element={<SingleWorkout singleWorkout={singleWorkout} />}
         />
       </Routes>
     </div>
