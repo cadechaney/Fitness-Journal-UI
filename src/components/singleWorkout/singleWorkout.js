@@ -1,15 +1,22 @@
 import './singleWorkout.css'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import backArrow from '../../assets/arrow+back+back+left+previous+stroke+arrow+icon-1320185739200187742.png'
 
-function singleWorkout({ singleWorkout }) {
-
+function SingleWorkout({ singleWorkout }) {
+  const navigate = useNavigate()
   const workout = singleWorkout[0]
 
   return (
     <main className='singleWorkout-container'>
       <div className='title-date'>
-        <h1>{workout.title}</h1>
-        <h3>{workout.date}</h3>
+        <div className='view-home-button'>
+          <img className='back-arrow' src={backArrow} alt='back arrow' onClick={() => navigate('/')}></img>
+        </div>
+        <div className='single-workout-header-content'>
+          <h1>{workout.title}</h1>
+          <h3>{workout.date}</h3>
+        </div>
       </div>
       <div className='description-extra'>
         <section className='description-container'>
@@ -29,4 +36,4 @@ function singleWorkout({ singleWorkout }) {
   )
 }
 
-export default singleWorkout
+export default SingleWorkout
