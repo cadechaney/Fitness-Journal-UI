@@ -3,9 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function SingleWorkout({ singleWorkout }) {
-
   const navigate = useNavigate()
-
   const workout = singleWorkout[0]
 
   return (
