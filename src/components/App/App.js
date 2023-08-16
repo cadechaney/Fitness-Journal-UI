@@ -86,7 +86,7 @@ function App() {
         />
         <Route 
           path='/past/workouts'
-          element={<AllWorkouts allWorkouts={workouts} />}
+          element={<AllWorkouts allWorkouts={workouts} filterWorkout={filterWorkout} deleteWorkout={deleteWorkout}/>}
         />
       </Routes>
     </div>
