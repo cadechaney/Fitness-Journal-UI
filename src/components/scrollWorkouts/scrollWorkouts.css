@@ -1,13 +1,13 @@
 
 .scrollWorkout-container {
-  border: 2px solid black;
+  border: 1px solid black;
   width: 30%;
 }
 
 .single-scroll-workout {
   border: 1px solid #000000;
   display: flex;
-  background-color: #232f3e;
+  background-color: #146eb4;
 }
 
 .workout-link {
