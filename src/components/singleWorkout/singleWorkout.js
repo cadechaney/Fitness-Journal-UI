@@ -25,12 +25,14 @@ function SingleWorkout({ singleWorkout }) {
             <p className='description-text'>{workout.description}</p>
           </div>
         </section>
-        <section className='extra-container'>
-          <h4>Extra Notes:</h4>
-          <div className='extra-text-container'>
-            <h5>{workout.extra}</h5>
-          </div>
-        </section>
+        {workout.extra !== '' && (
+          <section className='extra-container'>
+            <h4>Extra Notes:</h4>
+            <div className='extra-text-container'>
+              <h5>{workout.extra}</h5>
+            </div>
+          </section>
+        )}
       </div>
     </main>
   )

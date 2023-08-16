@@ -5,11 +5,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  border: 2px solid blue;
+  border: 1px solid #000000;
+  background-color: #146eb4;
 } 
 
 input {
   width: 60%;
+  border: 1px solid #000000;
+}
+
+textarea {
+  border: 1px solid #000000;
 }
 
 .description-input {
