@@ -1,13 +1,20 @@
 import './AllWorkouts.css'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import backArrow from '../../assets/arrow+back+back+left+previous+stroke+arrow+icon-1320185739200187742.png'
+import { useNavigate } from 'react-router-dom'
 
 function AllWorkouts({ allWorkouts, filterWorkout, deleteWorkout }) {
+  const navigate = useNavigate()
 
   return (
     <main className='allWorkouts-header-container'>
       <header className='past-workouts-header'>
+        <div className='view-home-button-all'>
+          <img className='back-arrow-from-all' src={backArrow} alt='back arrow' onClick={() => navigate('/')}></img>
+        </div>
         <h1 className='past-workouts-title'>All Past Workouts</h1>
+        <div></div>
       </header>
       <div className='all-workouts-container'>
         {allWorkouts.map((workout, index) => (

@@ -4,25 +4,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url('../../assets/1fd4398cb4eb02502234efa6667c28cf.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; 
 }
 
 .past-workouts-header {
   height: 10%;
   width: 100%;
+  background-color: #146eb4;
+  border: 1px solid #000000;
   display: flex;
-  justify-content: center;
+  align-items: center; /* Align items vertically */
+  justify-content: space-between;
 }
 
 .past-workouts-title {
   color: #000000;
+  margin: 0;
 }
 
 .all-workouts-container {
-  /* height: 90%; */
   width: 40%;
   display: flex;
   flex-direction: column;
   border: 1px solid #000000;
+  margin-top: 2%;
 }
 
 .all-single-scroll-workout {
@@ -48,4 +56,19 @@
 .all-date-tag,
 .all-title-tag {
   color: #000000;
+}
+
+.all-single-scroll-workout:hover {
+  border: 2px solid #f2f2f2;
+}
+
+.view-home-button-all {
+  height: 100%;
+}
+
+.back-arrow-from-all {
+  height: 80%;
+  width: auto;
+  padding: 5px;
+  cursor: pointer;
 }
