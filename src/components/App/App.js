@@ -6,6 +6,7 @@ import ScrollWorkout from '../scrollWorkouts/scrollWorkouts'
 import Form from '../Form/Form'
 import SingleWorkout from '../singleWorkout/singleWorkout'
 import { Routes, Route } from 'react-router-dom'
+import AllWorkouts from '../AllWorkouts/AllWorkouts';
 
 function App() {
 
@@ -82,6 +83,10 @@ function App() {
         <Route 
           path='/workout/:id'
           element={<SingleWorkout singleWorkout={singleWorkout} />}
+        />
+        <Route 
+          path='/past/workouts'
+          element={<AllWorkouts />}
         />
       </Routes>
     </div>
