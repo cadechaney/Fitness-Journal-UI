@@ -1,4 +1,45 @@
 
+.scrollWorkout-container {
+  border: 2px solid black;
+  width: 30%;
+}
+
+.single-scroll-workout {
+  border: 2px solid red;
+  display: flex;
+}
+
+.workout-link {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.title-tag-container {
+  width: 50%;
+  overflow-x: auto; /* Add this line to enable horizontal scrolling */
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+}
+
+.date-tag-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.delete-button-container {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-workout {
+  height: 50%;
+}
+
 
 
 
