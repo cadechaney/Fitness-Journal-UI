@@ -1,0 +1,51 @@
+.allWorkouts-header-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.past-workouts-header {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.past-workouts-title {
+  color: #000000;
+}
+
+.all-workouts-container {
+  /* height: 90%; */
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000000;
+}
+
+.all-single-scroll-workout {
+  border: 1px solid #000000;
+  display: flex;
+  background-color: #146eb4;
+}
+
+.all-workout-link {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  text-decoration: none;
+}
+
+.all-delete-button-container {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.all-date-tag,
+.all-title-tag {
+  color: #000000;
+}
