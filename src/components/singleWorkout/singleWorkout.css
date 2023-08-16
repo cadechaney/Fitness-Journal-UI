@@ -65,9 +65,13 @@
   justify-content: center;
 }
 
-
-
 .description-text {
   margin: 0;
   word-wrap: break-word;
+}
+
+.back-arrow {
+  height: 100%;
+  margin-left: 5%;
+  margin-top: 1%;
 }
