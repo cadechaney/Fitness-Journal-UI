@@ -5,4 +5,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-image: url('../../assets/1fd4398cb4eb02502234efa6667c28cf.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; 
 }
