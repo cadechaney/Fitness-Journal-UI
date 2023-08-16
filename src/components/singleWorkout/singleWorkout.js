@@ -1,7 +1,10 @@
 import './singleWorkout.css'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-function singleWorkout({ singleWorkout }) {
+function SingleWorkout({ singleWorkout }) {
+
+  const navigate = useNavigate()
 
   const workout = singleWorkout[0]
 
@@ -9,7 +12,7 @@ function singleWorkout({ singleWorkout }) {
     <main className='singleWorkout-container'>
       <div className='title-date'>
         <div className='view-home-button'>
-          <p>back button</p>
+          <p onClick={() => navigate('/')}>back button</p>
         </div>
         <div className='single-workout-header-content'>
           <h1>{workout.title}</h1>
@@ -34,4 +37,4 @@ function singleWorkout({ singleWorkout }) {
   )
 }
 
-export default singleWorkout
+export default SingleWorkout
