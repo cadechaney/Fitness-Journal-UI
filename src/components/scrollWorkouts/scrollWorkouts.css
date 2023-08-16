@@ -1,46 +1,55 @@
 
 .scrollWorkout-container {
-  height: 20%;
-  width: 25%;
-  overflow: auto;
-  border: 2px solid red;
+  border: 2px solid black;
+  width: 30%;
 }
 
 .single-scroll-workout {
+  border: 2px solid red;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.workout-info-small {
-  display: flex;
-  align-items: center;
-}
-
-.delete-workout {
-  height: 70%;
 }
 
 .workout-link {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
   text-decoration: none;
   color: black;
 }
 
-.workout-link:hover {
+.title-tag-container {
+  width: 50%;
+  overflow-x: auto; /* Add this line to enable horizontal scrolling */
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+}
+
+.date-tag-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.delete-button-container {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-workout {
+  height: 50%;
+}
+
+.title-tag:hover,
+.date-tag:hover {
   color: blue;
 }
 
-.date-tag {
-  margin-left: 10px;
-  width: 70%;
-  white-space: nowrap;
-  overflow: hidden; 
-}
 
-.title-tag-container {
-  overflow-x: auto;
-  white-space: nowrap;
-}
+
+
 
 
 

@@ -11,14 +11,16 @@ function scrollWorkout({ workouts, deleteWorkout, filterWorkout }) {
           {workouts.slice(0, 7).map((workout, index) => (
             <div key={index} onClick={() => filterWorkout(index)} className='single-scroll-workout'>
                 <NavLink key={index} to={`/workout/${index}`} className='workout-link'>
-                  <section className='workout-info-small'>
-                    <div className='title-tag-container'>
-                      <p className='title-tag'>{workout.title}</p>
-                    </div>
+                  <div className='title-tag-container'>
+                    <p className='title-tag'>{workout.title}</p>
+                  </div>
+                  <div className='date-tag-container'>
                     <p className='date-tag'>{workout.date}</p>
-                  </section>
+                  </div>
                 </NavLink>
-                <button className='delete-workout' onClick={() => deleteWorkout(index)}>Delete</button>
+                <div className='delete-button-container'>
+                  <button className='delete-workout' onClick={() => deleteWorkout(index)}>Delete</button>
+                </div>
               </div>
           ))}
         </section>
