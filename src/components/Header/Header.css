@@ -3,5 +3,10 @@
   display: flex;
   justify-content: center;
   height: 10vh;
-  border: 2px solid green;
+  background-color: #232f3e;
+  border: 1px solid #000000;
+}
+
+h1 {
+  color: #f2f2f2;
 }
