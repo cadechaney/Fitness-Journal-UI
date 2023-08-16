@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Hamburger.css'; // You can define your own styles
+import './Hamburger.css';
+import { NavLink } from 'react-router-dom';
 
 function HamburgerMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,7 +18,9 @@ function HamburgerMenu() {
       </div>
       {menuOpen && (
         <div className="dropdown-content">
-          <p>There</p>
+          <NavLink className='drop-down-option' to='/past/workouts'>
+            <p>View All Past Workouts</p>
+          </NavLink>
         </div>
       )}
     </div>
