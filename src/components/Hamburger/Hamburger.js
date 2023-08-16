@@ -12,9 +12,10 @@ function HamburgerMenu() {
   return (
     <div className="hamburger-menu">
       <div className={`hamburger-icon ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+        
+        {/* <div className="bar"></div>
         <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
+        <div className="bar"></div> */}
       </div>
       {menuOpen && (
         <div className="dropdown-content">
