@@ -86,7 +86,7 @@ function App() {
         />
         <Route 
           path='/past/workouts'
-          element={<AllWorkouts />}
+          element={<AllWorkouts allWorkouts={workouts} />}
         />
       </Routes>
     </div>
