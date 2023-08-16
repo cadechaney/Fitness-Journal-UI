@@ -22,7 +22,7 @@ function scrollWorkout({ workouts, deleteWorkout, filterWorkout }) {
                   <button className='delete-workout' onClick={() => deleteWorkout(index)}>Delete</button>
                 </div>
               </div>
-          ))}
+          )).reverse()}
         </section>
       ) : (
         <p>{workouts.length === 0 ? "Loading workouts..." : "No workouts available"}</p>
