@@ -8,8 +8,13 @@ function singleWorkout({ singleWorkout }) {
   return (
     <main className='singleWorkout-container'>
       <div className='title-date'>
-        <h1>{workout.title}</h1>
-        <h3>{workout.date}</h3>
+        <div className='view-home-button'>
+          <p>back button</p>
+        </div>
+        <div className='single-workout-header-content'>
+          <h1>{workout.title}</h1>
+          <h3>{workout.date}</h3>
+        </div>
       </div>
       <div className='description-extra'>
         <section className='description-container'>
