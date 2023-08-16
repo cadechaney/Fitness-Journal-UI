@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Hamburger.css';
 import { NavLink } from 'react-router-dom';
+import Hamburger from '../../assets/hamburger-icon-512x365-t1in8msh.png'
 
 function HamburgerMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,9 +13,7 @@ function HamburgerMenu() {
   return (
     <div className="hamburger-menu">
       <div className={`hamburger-icon ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
+        <img src={Hamburger} alt='hamburger'></img>
       </div>
       {menuOpen && (
         <div className="dropdown-content">
