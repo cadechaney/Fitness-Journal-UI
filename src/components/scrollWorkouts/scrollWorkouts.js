@@ -15,10 +15,14 @@ function scrollWorkout({ workouts, deleteWorkout, filterWorkout }) {
                     <div className='title-tag-container'>
                       <p className='title-tag'>{workout.title}</p>
                     </div>
-                    <p className='date-tag'>{workout.date}</p>
+                    <div className='date-tag-container'>
+                      <p className='date-tag'>{workout.date}</p>
+                    </div>
                   </section>
                 </NavLink>
-                <button className='delete-workout' onClick={() => deleteWorkout(index)}>Delete</button>
+                <div clssName='delete-button-container'>
+                  <button className='delete-workout' onClick={() => deleteWorkout(index)}>Delete</button>
+                </div>
               </div>
           ))}
         </section>
