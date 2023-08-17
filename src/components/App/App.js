@@ -84,7 +84,9 @@ function App() {
   }
 
   const filterWorkout = (id) => {
-    let singleWorkout = workouts.filter((workout, index) => index === id)
+
+    const filteredWorkouts = workouts.filter(workout => workout.userId === userID)
+    let singleWorkout = filteredWorkouts.filter((workout, index) => index === id)
     setSingleWorkout(singleWorkout)
     console.log(singleWorkout)
   }
