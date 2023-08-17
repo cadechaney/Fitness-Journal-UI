@@ -24,7 +24,11 @@ function LoginPage({ handleLogin, username, setUsername, password, setPassword, 
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        <button className='login-submit-button' onClick={handleLogin}>Login</button>
+          <button className='login-submit-button' onClick={handleLogin}>Login</button>
+          <section className='sign-up-container'>
+            <div></div>
+            <p className='sign-up-title'>Sign Up</p>
+          </section>
         </section>
       </main>
       {error && <p>{error}</p>}
