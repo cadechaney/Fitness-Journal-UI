@@ -4,21 +4,29 @@ import React from 'react'
 function LoginPage({ handleLogin, username, setUsername, password, setPassword, error }) {
 
   return (
-    <div>
-      <h2>Login</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
+    <div className='login-page'>
+      <header className='login-header'>
+        <h2 className='login-title'>Login to SweatScript</h2>
+      </header>
+      <main className='login-page-main'>
+        <section className='login-input-container'>
+          <input
+            className='username-input'
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            className='password-input'
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        <button className='login-submit-button' onClick={handleLogin}>Login</button>
+        </section>
+      </main>
       {error && <p>{error}</p>}
     </div>
   )

@@ -8,7 +8,7 @@ function scrollWorkout({ workouts, deleteWorkout, filterWorkout, userID }) {
 
   return (
     <div className='scrollWorkout-container'>
-      <p>Last 7 Logged Workouts:</p>
+      <p className='weekly-title'>Last 7 Logged Workouts:</p>
       {workouts.length > 0 ? (
         <section>
           {filteredWorkouts.slice(0, 7).map((workout, index) => (

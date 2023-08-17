@@ -1,10 +1,6 @@
 .singleWorkout-container {
   height: 100vh;
   width: 100%;
-  background-image: url('../../assets/1fd4398cb4eb02502234efa6667c28cf.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
 }
 
 h4 {
@@ -41,6 +37,10 @@ h4 {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  background-image: url('../../assets/is14368-image-kwvygojc.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .description-container,
