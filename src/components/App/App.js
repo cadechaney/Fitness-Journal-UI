@@ -18,6 +18,7 @@ function App() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [userID, setUserID] = useState('')
+  const [userName, setUserName] = useState('')
   
   useEffect(() => {
     fetchWorkouts()
@@ -34,6 +35,7 @@ function App() {
       const response = await loginUser({ username, password })
       const token = response.token;
       setUserID(response.user.id) 
+      setUserName(response.user.username)
       navigate(`/${response.user.username}/workouts`)
     } catch (error) {
       setError('Invalid credentials');
@@ -114,7 +116,7 @@ function App() {
         />
         <Route 
           path='/workout/:id'
-          element={<SingleWorkout singleWorkout={singleWorkout} />}
+          element={<SingleWorkout singleWorkout={singleWorkout} username={userName} />}
         />
         <Route 
           path='/past/workouts'
