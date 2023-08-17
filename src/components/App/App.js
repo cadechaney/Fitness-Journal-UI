@@ -118,7 +118,7 @@ function App() {
           )} 
         />
         <Route 
-          path='/workout/:id'
+          path='/workout/:title'
           element={<SingleWorkout singleWorkout={singleWorkout} userName={userName} />}
         />
         <Route 

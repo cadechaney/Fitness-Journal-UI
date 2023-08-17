@@ -13,7 +13,7 @@ function scrollWorkout({ workouts, deleteWorkout, filterWorkout, userID }) {
         <section>
           {filteredWorkouts.slice(0, 7).map((workout, index) => (
             <div key={index} onClick={() => filterWorkout(index)} className='single-scroll-workout'>
-                <NavLink key={index} to={`/workout/${index}`} className='workout-link'>
+                <NavLink key={index} to={`/workout/${workout.title}`} className='workout-link'>
                   <div className='title-tag-container'>
                     <p className='title-tag'>{workout.title}</p>
                   </div>
