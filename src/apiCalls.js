@@ -1,5 +1,22 @@
-
 const API_URL = '/stuff'; // Update this with your API endpoint
+const USER_API_URL = '/users';
+
+export const loginUser = async (credentials) => {
+  try {
+    const response = await fetch(`${USER_API_URL}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(credentials)
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error logging in:', error);
+    throw error;
+  }
+};
 
 export const fetchWorkouts = async () => {
   try {
