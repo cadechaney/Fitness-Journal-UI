@@ -107,7 +107,7 @@ function App() {
             <>
               <Header />
               <div className='app-content'>
-                <Form postRequest={postRequest}/>
+                <Form postRequest={postRequest} userID={userID} />
                 <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} filterWorkout={filterWorkout} userID={userID} />
               </div>
             </>

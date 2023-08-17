@@ -1,9 +1,10 @@
 import './Form.css'
 import React, { useState } from 'react'
 
-function Form({ postRequest }) {
+function Form({ postRequest, userID }) {
 
   const [formData, setFormData] = useState({
+    userId: userID,
     title: '',
     date: '',
     description: '',
