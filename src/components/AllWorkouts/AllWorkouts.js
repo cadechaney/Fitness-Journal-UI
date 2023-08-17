@@ -30,7 +30,7 @@ function AllWorkouts({ allWorkouts, filterWorkout, deleteWorkout, userID, userNa
                 </div>
               </NavLink>
               <div className='all-delete-button-container'>
-                <button className='all-delete-workout' onClick={() => deleteWorkout(index)}>Delete</button>
+                <button className='all-delete-workout' onClick={() => deleteWorkout(workout.id)}>Delete</button>
               </div>
             </div>
         )).reverse()}
