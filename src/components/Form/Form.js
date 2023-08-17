@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 function Form({ postRequest, userID }) {
   const [idCounter, setIdCounter] = useState(5)
   const [formData, setFormData] = useState({
+    id: idCounter,
     userId: userID,
     title: '',
     date: '',
