@@ -7,6 +7,8 @@ function SingleWorkout({ singleWorkout, userName }) {
   const navigate = useNavigate()
   const workout = singleWorkout[0]
 
+  // console.log(userName)
+
   return (
     <main className='singleWorkout-container'>
       <div className='title-date'>

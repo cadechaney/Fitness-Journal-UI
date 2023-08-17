@@ -36,6 +36,7 @@ function App() {
       const token = response.token;
       setUserID(response.user.id) 
       setUserName(response.user.username)
+      console.log(response.user)
       navigate(`/${response.user.username}/workouts`)
     } catch (error) {
       setError('Invalid credentials');
@@ -43,8 +44,8 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(userID); // Log the updated userName
-    // Additional actions that depend on the updated userName can go here
+    console.log(userID);
+    console.log(userName)
   }, [userID]);
 
   const postRequest = (newObject) => {
@@ -116,7 +117,7 @@ function App() {
         />
         <Route 
           path='/workout/:id'
-          element={<SingleWorkout singleWorkout={singleWorkout} username={userName} />}
+          element={<SingleWorkout singleWorkout={singleWorkout} userName={userName} />}
         />
         <Route 
           path='/past/workouts'
