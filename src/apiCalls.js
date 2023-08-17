@@ -46,9 +46,9 @@ export const addWorkout = async (newWorkout) => {
   }
 };
 
-export const deleteWorkoutAPI = async (index) => {
+export const deleteWorkoutAPI = async (workoutId) => {
   try {
-    const response = await fetch(`${API_URL}/${index}`, {
+    const response = await fetch(`${API_URL}/${workoutId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

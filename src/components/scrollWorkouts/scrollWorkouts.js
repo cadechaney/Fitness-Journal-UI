@@ -22,7 +22,7 @@ function scrollWorkout({ workouts, deleteWorkout, filterWorkout, userID }) {
                   </div>
                 </NavLink>
                 <div className='delete-button-container'>
-                  <button className='delete-workout' onClick={() => deleteWorkout(index)}>Delete</button>
+                  <button className='delete-workout' onClick={() => deleteWorkout(workout.id)}>Delete</button>
                 </div>
               </div>
           )).reverse()}

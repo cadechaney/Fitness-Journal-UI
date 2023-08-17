@@ -2,7 +2,7 @@ import './Form.css'
 import React, { useState } from 'react'
 
 function Form({ postRequest, userID }) {
-
+  const [idCounter, setIdCounter] = useState(5)
   const [formData, setFormData] = useState({
     userId: userID,
     title: '',
@@ -22,7 +22,10 @@ function Form({ postRequest, userID }) {
   };
 
   const clearInputs = () => {
+    setIdCounter((prevCounter) => prevCounter + 1)
     setFormData({
+
+      userId: userID,
       title: '',
       date: '',
       description: '',

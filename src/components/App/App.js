@@ -61,15 +61,14 @@ function App() {
       })
   };
 
-  const deleteWorkout = (index) => {
-
-    const updatedWorkouts = workouts.filter((_, i) => i !== index);
+  const deleteWorkout = (workoutId) => {
+    const updatedWorkouts = workouts.filter(workout => workout.id !== workoutId);
     setWorkouts(updatedWorkouts);
 
-    deleteWorkoutAPI(index)
+    deleteWorkoutAPI(workoutId)
       .then(success => {
         if(success) {
-          console.log(`Workout at index ${index} deleted successfully`)
+          console.log(`Workout at index ${workoutId} deleted successfully`)
         } else {
           console.log('Failed to delete workout')
           setWorkouts(workouts)
