@@ -125,6 +125,10 @@ function App() {
           path='/past/workouts'
           element={<AllWorkouts allWorkouts={workouts} filterWorkout={filterWorkout} deleteWorkout={deleteWorkout} userID={userID} userName={userName}/>}
         />
+        <Route 
+          path='/signup'
+          element={<SignUp />}
+        />
       </Routes>
     </div>
   );
