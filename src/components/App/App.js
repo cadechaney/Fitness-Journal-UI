@@ -17,7 +17,7 @@ function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [userName, setUserName] = useState('')
+  const [userID, setUserID] = useState('')
   
   useEffect(() => {
     fetchWorkouts()
@@ -33,7 +33,7 @@ function App() {
     try {
       const response = await loginUser({ username, password })
       const token = response.token;
-      setUserName(response.user.username) 
+      setUserID(response.user.id) 
       navigate(`/${response.user.username}/workouts`)
     } catch (error) {
       setError('Invalid credentials');
@@ -41,9 +41,9 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(userName); // Log the updated userName
+    console.log(userID); // Log the updated userName
     // Additional actions that depend on the updated userName can go here
-  }, [userName]);
+  }, [userID]);
 
   const postRequest = (newObject) => {
     if(!newObject.title || !newObject.date || !newObject.description) {
@@ -108,7 +108,7 @@ function App() {
               <Header />
               <div className='app-content'>
                 <Form postRequest={postRequest}/>
-                <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} filterWorkout={filterWorkout} />
+                <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} filterWorkout={filterWorkout} userID={userID} />
               </div>
             </>
           )} 
