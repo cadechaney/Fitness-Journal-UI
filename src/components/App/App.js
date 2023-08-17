@@ -7,6 +7,7 @@ import Form from '../Form/Form'
 import SingleWorkout from '../singleWorkout/singleWorkout'
 import { Routes, Route } from 'react-router-dom'
 import AllWorkouts from '../AllWorkouts/AllWorkouts';
+import LoginPage from '../LoginPage/LoginPage';
 
 function App() {
 
@@ -69,7 +70,11 @@ function App() {
     <div className="App">
       <Routes>
         <Route 
-          path='/' 
+          path='/'
+          element={<LoginPage />}
+        />
+        <Route 
+          path='/log/workouts' 
           element={(
             <>
               <Header />
