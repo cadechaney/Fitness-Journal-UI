@@ -1,5 +1,6 @@
 import './LoginPage.css'
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 
 function LoginPage({ handleLogin, username, setUsername, password, setPassword, error }) {
 
@@ -27,7 +28,9 @@ function LoginPage({ handleLogin, username, setUsername, password, setPassword, 
           <button className='login-submit-button' onClick={handleLogin}>Login</button>
           <section className='sign-up-container'>
             <div></div>
-            <p className='sign-up-title'>Sign Up</p>
+            <NavLink className='sign-up-link' to='/signup'>
+              <p className='sign-up-title'>Sign Up</p>
+            </NavLink>
           </section>
         </section>
       </main>
