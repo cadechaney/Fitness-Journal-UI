@@ -4,7 +4,7 @@
 }
 
 .login-header {
-  border: 1px solid #808080;
+  border: 1px solid #000000;
   background-color: #3466AA;
   height: 10%;
   display: flex;
@@ -21,12 +21,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-image: url('../../assets/); */
+  background-image: url('../../assets/functional-55-gym-fitness-center-malakpet-hyderabad-fitness-centres-ekezcdvq29.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .login-input-container {
-  border: 1px solid #808080;
-  background-color: #3466AA;
+  border: 2px solid #000000;
+  background-color: #82b7dc;
   height: 35%;
   width: 40%;
   display: flex;
