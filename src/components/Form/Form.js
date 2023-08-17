@@ -34,6 +34,7 @@ function Form({ postRequest, userID }) {
 
   return (
     <div className='form-container'>
+      <h3>Log Your Workout:</h3>
       <input 
         type='text' 
         name='title' 
