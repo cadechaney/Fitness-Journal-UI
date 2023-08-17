@@ -4,8 +4,10 @@ import { NavLink } from 'react-router-dom'
 import backArrow from '../../assets/arrow+back+back+left+previous+stroke+arrow+icon-1320185739200187742.png'
 import { useNavigate } from 'react-router-dom'
 
-function AllWorkouts({ allWorkouts, filterWorkout, deleteWorkout }) {
+function AllWorkouts({ allWorkouts, filterWorkout, deleteWorkout, userID }) {
   const navigate = useNavigate()
+
+  const filteredWorkouts = allWorkouts.filter(workout => workout.userId === userID)
 
   return (
     <main className='allWorkouts-header-container'>
@@ -17,7 +19,7 @@ function AllWorkouts({ allWorkouts, filterWorkout, deleteWorkout }) {
         <div></div>
       </header>
       <div className='all-workouts-container'>
-        {allWorkouts.map((workout, index) => (
+        {filteredWorkouts.map((workout, index) => (
           <div key={index} onClick={() => filterWorkout(index)} className='all-single-scroll-workout'>
               <NavLink key={index} to={`/workout/${index}`} className='all-workout-link'>
                 <div className='all-title-tag-container'>
