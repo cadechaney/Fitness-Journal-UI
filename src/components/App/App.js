@@ -1,11 +1,11 @@
 import './App.css';
 import React, { useEffect, useState } from 'react'
-import { fetchWorkouts, addWorkout, deleteWorkoutAPI } from '../../apiCalls'
+import { fetchWorkouts, addWorkout, deleteWorkoutAPI, loginUser } from '../../apiCalls'
 import Header from '../Header/Header'
 import ScrollWorkout from '../scrollWorkouts/scrollWorkouts'
 import Form from '../Form/Form'
 import SingleWorkout from '../singleWorkout/singleWorkout'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import AllWorkouts from '../AllWorkouts/AllWorkouts';
 import LoginPage from '../LoginPage/LoginPage';
 
@@ -13,7 +13,12 @@ function App() {
 
   const [workouts, setWorkouts] = useState([])
   const [singleWorkout, setSingleWorkout] = useState()
-
+  const navigate = useNavigate()
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [userName, setUserName] = useState('')
+  
   useEffect(() => {
     fetchWorkouts()
       .then(data => {
@@ -23,6 +28,22 @@ function App() {
         console.log('Error fetching data', error)
       })
   }, [])
+
+  const handleLogin = async () => {
+    try {
+      const response = await loginUser({ username, password })
+      const token = response.token;
+      setUserName(response.user.username) 
+      navigate(`/${response.user.username}/workouts`)
+    } catch (error) {
+      setError('Invalid credentials');
+    }
+  };
+
+  useEffect(() => {
+    console.log(userName); // Log the updated userName
+    // Additional actions that depend on the updated userName can go here
+  }, [userName]);
 
   const postRequest = (newObject) => {
     if(!newObject.title || !newObject.date || !newObject.description) {
@@ -71,10 +92,17 @@ function App() {
       <Routes>
         <Route 
           path='/'
-          element={<LoginPage />}
+          element={<LoginPage 
+          handleLogin={handleLogin} 
+          username={username} 
+          setUsername={setUsername} 
+          password={password}
+          setPassword={setPassword}
+          error={error}
+        />}
         />
         <Route 
-          path='/log/workouts' 
+          path='/:username/workouts' 
           element={(
             <>
               <Header />
