@@ -71,7 +71,7 @@ function App() {
     deleteWorkoutAPI(workoutId)
       .then(success => {
         if(success) {
-          console.log(`Workout at index ${workoutId} deleted successfully`)
+          console.log(`Workout with ID ${workoutId} deleted successfully`)
         } else {
           console.log('Failed to delete workout')
           setWorkouts(workouts)
