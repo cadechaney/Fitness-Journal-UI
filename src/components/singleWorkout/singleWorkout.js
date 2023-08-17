@@ -3,15 +3,17 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import backArrow from '../../assets/arrow+back+back+left+previous+stroke+arrow+icon-1320185739200187742.png'
 
-function SingleWorkout({ singleWorkout }) {
+function SingleWorkout({ singleWorkout, userName }) {
   const navigate = useNavigate()
   const workout = singleWorkout[0]
+
+  // console.log(userName)
 
   return (
     <main className='singleWorkout-container'>
       <div className='title-date'>
         <div className='view-home-button'>
-          <img className='back-arrow' src={backArrow} alt='back arrow' onClick={() => navigate('/')}></img>
+          <img className='back-arrow' src={backArrow} alt='back arrow' onClick={() => navigate(`/${userName}/workouts`)}></img>
         </div>
         <div className='single-workout-header-content'>
           <h1>{workout.title}</h1>

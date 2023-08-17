@@ -1,9 +1,10 @@
 import './Form.css'
 import React, { useState } from 'react'
 
-function Form({ postRequest }) {
-
+function Form({ postRequest, userID }) {
   const [formData, setFormData] = useState({
+    id: Date.now(),
+    userId: userID,
     title: '',
     date: '',
     description: '',
@@ -22,6 +23,8 @@ function Form({ postRequest }) {
 
   const clearInputs = () => {
     setFormData({
+
+      userId: userID,
       title: '',
       date: '',
       description: '',
