@@ -21,7 +21,7 @@ function AllWorkouts({ allWorkouts, filterWorkout, deleteWorkout, userID, userNa
       <div className='all-workouts-container'>
         {filteredWorkouts.map((workout, index) => (
           <div key={index} onClick={() => filterWorkout(index)} className='all-single-scroll-workout'>
-              <NavLink key={index} to={`/workout/${index}`} className='all-workout-link'>
+              <NavLink key={index} to={`/workout/${workout.title}`} className='all-workout-link'>
                 <div className='all-title-tag-container'>
                   <p className='all-title-tag'>{workout.title}</p>
                 </div>
