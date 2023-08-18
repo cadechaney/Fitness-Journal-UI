@@ -21,6 +21,7 @@ function App() {
   const [error, setError] = useState('');
   const [userID, setUserID] = useState('')
   const [userName, setUserName] = useState('')
+  const [userPassword, setUserPassword] = useState('')
   
   useEffect(() => {
     fetchWorkouts()
@@ -38,6 +39,7 @@ function App() {
       const token = response.token;
       setUserID(response.user.id) 
       setUserName(response.user.username)
+      setUserPassword(response.user.password)
       console.log(response.user)
       navigate(`/${response.user.username}/workouts`)
     } catch (error) {
@@ -135,7 +137,7 @@ function App() {
         />
         <Route 
           path='/settings'
-          element={<Settings loggedInID={userID} />}
+          element={<Settings loggedInUsername={userName} userPassword={userPassword}/>}
         />
       </Routes>
     </div>

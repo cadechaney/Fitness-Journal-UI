@@ -89,9 +89,9 @@ export const signUpUser = async (newUser) => {
   }
 };
 
-export const deleteUserAccount = async (userId) => {
+export const deleteUserAccount = async (userName) => {
   try {
-    const response = await fetch(`${USER_API_URL}/${userId}`, {
+    const response = await fetch(`${USER_API_URL}/${userName}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
