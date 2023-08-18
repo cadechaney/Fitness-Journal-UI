@@ -77,6 +77,7 @@ function App() {
         } else {
           console.log('Failed to delete workout')
           setWorkouts(workouts)
+          alert('Please Refresh Page or Log Back In')
         }
       })
       .catch(error => {
