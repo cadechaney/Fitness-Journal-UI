@@ -10,3 +10,52 @@
   width: 20%;
 }
 
+.delete-account-main {
+  border: 2px solid blue;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-deletion-header {
+  border: 2px solid green;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-account-title {
+  color: black;
+}
+
+.account-deletion-form-container {
+  border: 2px solid blue;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.account-deletion-form {
+  border: 2px solid purple;
+  height: 30%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.account-deletion-username-input,
+.account-deletion-password-input {
+  width: 20%;
+}
+
+.account-delete-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
