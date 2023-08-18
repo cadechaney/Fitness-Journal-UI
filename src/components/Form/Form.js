@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 
 function Form({ postRequest, userID }) {
   const [formData, setFormData] = useState({
-    id: Date.now(),
     userId: userID,
     title: '',
     date: '',
@@ -44,8 +43,10 @@ function Form({ postRequest, userID }) {
     // Reset the needsLogin state if the user can submit
     setNeedsLogin(false);
 
+    const newId = Date.now()
+
     try {
-      await postRequest(formData);
+      await postRequest({id: newId, ...formData});
       clearInputs();
     } catch (error) {
       console.error('Error posting workout:', error);
