@@ -8,6 +8,7 @@ import SingleWorkout from '../singleWorkout/singleWorkout'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import AllWorkouts from '../AllWorkouts/AllWorkouts';
 import LoginPage from '../LoginPage/LoginPage';
+import SignUp from '../SignUp/SignUp'
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
       navigate(`/${response.user.username}/workouts`)
     } catch (error) {
       setError('Invalid credentials');
+      alert('Not valid login info')
     }
   };
 
@@ -124,6 +126,10 @@ function App() {
         <Route 
           path='/past/workouts'
           element={<AllWorkouts allWorkouts={workouts} filterWorkout={filterWorkout} deleteWorkout={deleteWorkout} userID={userID} userName={userName}/>}
+        />
+        <Route 
+          path='/signup'
+          element={<SignUp />}
         />
       </Routes>
     </div>

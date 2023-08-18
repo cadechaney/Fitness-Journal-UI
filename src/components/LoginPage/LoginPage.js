@@ -1,5 +1,6 @@
 import './LoginPage.css'
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 
 function LoginPage({ handleLogin, username, setUsername, password, setPassword, error }) {
 
@@ -24,7 +25,13 @@ function LoginPage({ handleLogin, username, setUsername, password, setPassword, 
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        <button className='login-submit-button' onClick={handleLogin}>Login</button>
+          <button className='login-submit-button' onClick={handleLogin}>Login</button>
+          <section className='sign-up-container'>
+            <div></div>
+            <NavLink className='sign-up-link' to='/signup'>
+              <p className='sign-up-title'>Sign Up</p>
+            </NavLink>
+          </section>
         </section>
       </main>
       {error && <p>{error}</p>}

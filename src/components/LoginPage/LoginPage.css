@@ -44,3 +44,19 @@
   height: 8%;
   width: 30%;
 }
+
+.sign-up-link {
+  color: black;
+  text-decoration: none;
+}
+
+.sign-up-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.sign-up-title:hover {
+ border-bottom: 2px solid blue;
+ cursor: pointer;
+}
