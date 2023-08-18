@@ -22,6 +22,7 @@ function App() {
   const [userID, setUserID] = useState('')
   const [userName, setUserName] = useState('')
   const [userPassword, setUserPassword] = useState('')
+  const [isAuthenticated, setIsAuthenticated] = useState(false); 
   
   useEffect(() => {
     fetchWorkouts()
@@ -40,7 +41,8 @@ function App() {
       setUserID(response.user.id) 
       setUserName(response.user.username)
       setUserPassword(response.user.password)
-      console.log(response.user)
+      console.log(response.user.username)
+      setIsAuthenticated(true)
       navigate(`/${response.user.username}/workouts`)
     } catch (error) {
       setError('Invalid credentials');
@@ -48,10 +50,10 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    console.log(userID);
-    console.log(userName)
-  }, [userID]);
+  // useEffect(() => {
+  //   console.log(userID);
+  //   console.log(userName)
+  // }, [userID]);
 
   const postRequest = (newObject) => {
     if(!newObject.title || !newObject.date || !newObject.description) {
@@ -100,50 +102,51 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route 
-          path='/'
-          element={<LoginPage 
-          handleLogin={handleLogin} 
-          username={username} 
-          setUsername={setUsername} 
-          password={password}
-          setPassword={setPassword}
-          error={error}
-        />}
+        <Route
+          path="/"
+          element={
+            <LoginPage
+              handleLogin={handleLogin}
+              username={username}
+              setUsername={setUsername}
+              password={password}
+              setPassword={setPassword}
+              error={error}
+            />
+          }
         />
-        <Route 
-          path='/:username/workouts' 
-          element={(
-            <>
-              <Header />
-              <div className='app-content'>
-                <Form postRequest={postRequest} userID={userID} />
-                <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} filterWorkout={filterWorkout} userID={userID} />
-              </div>
-            </>
-          )} 
-        />
-        <Route 
-          path='/workout/:title'
-          element={<SingleWorkout singleWorkout={singleWorkout} userName={userName} />}
-        />
-        <Route 
-          path='/past/workouts'
-          element={<AllWorkouts allWorkouts={workouts} filterWorkout={filterWorkout} deleteWorkout={deleteWorkout} userID={userID} userName={userName}/>}
-        />
-        <Route 
-          path='/signup'
-          element={<SignUp />}
-        />
-        <Route 
-          path='/settings'
-          element={<Settings loggedInUsername={userName} userPassword={userPassword} loggedInUserId={userID} userName={userName} />}
-        />
+        {isAuthenticated && (
+          <>
+            <Route
+              path="/:username/workouts"
+              element={
+                <>
+                  <Header />
+                  <div className="app-content">
+                    <Form postRequest={postRequest} userID={userID} />
+                    <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} filterWorkout={filterWorkout} userID={userID} />
+                  </div>
+                </>
+              }
+            />
+            <Route
+              path="/workout/:title"
+              element={<SingleWorkout singleWorkout={singleWorkout} userName={userName} />}
+            />
+            <Route
+              path="/past/workouts"
+              element={<AllWorkouts allWorkouts={workouts} filterWorkout={filterWorkout} deleteWorkout={deleteWorkout} userID={userID} userName={userName} />}
+            />
+            <Route path="/signup" element={<SignUp />} />
+            <Route
+              path="/settings"
+              element={<Settings loggedInUsername={userName} userPassword={userPassword} loggedInUserId={userID} userName={userName} />}
+            />
+          </>
+        )}
       </Routes>
     </div>
   );
-  
-  
 }
 
 export default App;
