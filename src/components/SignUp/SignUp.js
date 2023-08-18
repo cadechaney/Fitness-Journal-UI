@@ -37,6 +37,8 @@ function SignUp() {
         if (response.status === 409) {
           // Username already exists
           alert('Username already exists. Please choose a different username.');
+          setUsername('');
+          setPassword('');
         } else {
           const errorData = await response.json();
           console.error('Registration error:', errorData.error);
