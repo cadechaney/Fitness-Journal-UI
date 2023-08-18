@@ -28,25 +28,31 @@ function SignUp() {
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="username"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Sign Up</button>
-      </form>
+    <div className='sign-up-container-two'>
+      <header className='sign-up-header'>
+        <h2 className='sign-up-title'>Sign Up For SweatScript</h2>
+      </header>
+      <main className='log-in-main'>
+        <form className='log-in-form' onSubmit={handleSubmit}>
+          <input
+            className='username-sign-up-input'
+            type="username"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <input
+            className='password-sign-up-input'
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button className='sign-up-button' type="submit">Sign Up</button>
+        </form>
+      </main>
     </div>
   );
 }
