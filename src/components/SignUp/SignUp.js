@@ -1,6 +1,6 @@
 import './SignUp.css'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import { signUpUser } from '../../apiCalls'
 
 function SignUp() {
@@ -28,25 +28,37 @@ function SignUp() {
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="username"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Sign Up</button>
-      </form>
+    <div className='sign-up-container-two'>
+      <header className='sign-up-header'>
+        <h2 className='sign-up-title'>Sign Up For SweatScript</h2>
+      </header>
+      <main className='log-in-main'>
+        <form className='log-in-form' onSubmit={handleSubmit}>
+          <input
+            className='username-sign-up-input'
+            type="username"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <input
+            className='password-sign-up-input'
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button className='sign-up-button' type="submit">Sign Up</button>
+          <div className='back-to-log-in-container'>
+            <div></div>
+            <NavLink className='log-in-link' to='/'>
+              <p className='back-to-login'>Back to Login</p>
+            </NavLink>
+          </div>
+        </form>
+      </main>
     </div>
   );
 }
