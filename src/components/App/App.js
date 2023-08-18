@@ -41,6 +41,7 @@ function App() {
       navigate(`/${response.user.username}/workouts`)
     } catch (error) {
       setError('Invalid credentials');
+      alert('Not valid login info')
     }
   };
 
