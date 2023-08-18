@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { deleteUserAccount } from '../../apiCalls'
 import { useNavigate } from 'react-router-dom'
 
-function Settings({ loggedInUsername, userPassword }) {
+function Settings({ loggedInUsername, userPassword, loggedInUserId }) {
 
   const navigate = useNavigate()
   const [inputUsername, setInputUsername] = useState('')
@@ -16,7 +16,7 @@ function Settings({ loggedInUsername, userPassword }) {
 
     if(inputUsername === loggedInUsername && inputPassword === userPassword) {
       console.log('username settings', loggedInUsername)
-      deleteUserAccount(loggedInUsername)
+      deleteUserAccount(loggedInUserId)
       navigate('/')
     } else {
       console.log('Invalid username or password')
