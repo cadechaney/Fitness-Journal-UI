@@ -48,3 +48,19 @@
 .sign-up-button {
   width: 40%;
 }
+
+.back-to-log-in-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.log-in-link {
+  color: black;
+  text-decoration: none;
+}
+
+.back-to-login:hover {
+  border-bottom: 2px solid blue;
+  cursor: pointer;
+}

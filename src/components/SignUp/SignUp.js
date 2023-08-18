@@ -1,6 +1,6 @@
 import './SignUp.css'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import { signUpUser } from '../../apiCalls'
 
 function SignUp() {
@@ -51,6 +51,12 @@ function SignUp() {
             required
           />
           <button className='sign-up-button' type="submit">Sign Up</button>
+          <div className='back-to-log-in-container'>
+            <div></div>
+            <NavLink className='log-in-link' to='/'>
+              <p className='back-to-login'>Back to Login</p>
+            </NavLink>
+          </div>
         </form>
       </main>
     </div>
