@@ -26,17 +26,22 @@ function SignUp() {
         },
         body: JSON.stringify(newUser),
       });
-
+  
       if (response.ok) {
         // Handle success
         console.log('User registered successfully');
-        navigate('/')
+        navigate('/');
         // You can redirect or display a success message here
       } else {
         // Handle error
-        const errorData = await response.json();
-        console.error('Registration error:', errorData.error);
-        // Display an error message to the user
+        if (response.status === 409) {
+          // Username already exists
+          alert('Username already exists. Please choose a different username.');
+        } else {
+          const errorData = await response.json();
+          console.error('Registration error:', errorData.error);
+          // Display an error message to the user
+        }
       }
     } catch (error) {
       console.error('An error occurred:', error);
