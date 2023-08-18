@@ -9,6 +9,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import AllWorkouts from '../AllWorkouts/AllWorkouts';
 import LoginPage from '../LoginPage/LoginPage';
 import SignUp from '../SignUp/SignUp'
+import Settings from '../Settings/Settings'
 
 function App() {
 
