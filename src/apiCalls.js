@@ -88,3 +88,18 @@ export const signUpUser = async (newUser) => {
     throw error;
   }
 };
+
+export const deleteUserAccount = async (userName) => {
+  try {
+    const response = await fetch(`${USER_API_URL}/${userName}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    return response.ok;
+  } catch(error) {
+    console.error('Error deleting user account', error);
+    throw error
+  }
+}

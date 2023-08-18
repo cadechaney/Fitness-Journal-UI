@@ -9,6 +9,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import AllWorkouts from '../AllWorkouts/AllWorkouts';
 import LoginPage from '../LoginPage/LoginPage';
 import SignUp from '../SignUp/SignUp'
+import Settings from '../Settings/Settings'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
   const [error, setError] = useState('');
   const [userID, setUserID] = useState('')
   const [userName, setUserName] = useState('')
+  const [userPassword, setUserPassword] = useState('')
   
   useEffect(() => {
     fetchWorkouts()
@@ -37,6 +39,7 @@ function App() {
       const token = response.token;
       setUserID(response.user.id) 
       setUserName(response.user.username)
+      setUserPassword(response.user.password)
       console.log(response.user)
       navigate(`/${response.user.username}/workouts`)
     } catch (error) {
@@ -131,6 +134,10 @@ function App() {
         <Route 
           path='/signup'
           element={<SignUp />}
+        />
+        <Route 
+          path='/settings'
+          element={<Settings loggedInUsername={userName} userPassword={userPassword}/>}
         />
       </Routes>
     </div>
