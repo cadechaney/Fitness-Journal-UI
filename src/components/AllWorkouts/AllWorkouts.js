@@ -19,9 +19,10 @@ function AllWorkouts({ allWorkouts, filterWorkout, deleteWorkout, userID, userNa
         <div></div>
       </header>
       <div className='all-workouts-container'>
-        {filteredWorkouts.map((workout, index) => (
-          <div key={index} onClick={() => filterWorkout(index)} className='all-single-scroll-workout'>
-              <NavLink key={index} to={`/workout/${workout.title}`} className='all-workout-link'>
+        {filteredWorkouts.length > 0 ? (
+          filteredWorkouts.map((workout, index) => (
+            <div key={index} onClick={() => filterWorkout(index)} className='all-single-scroll-workout'>
+              <NavLink key={index} to={`/${userName}/workouts`} className='all-workout-link'>
                 <div className='all-title-tag-container'>
                   <p className='all-title-tag'>{workout.title}</p>
                 </div>
@@ -33,7 +34,10 @@ function AllWorkouts({ allWorkouts, filterWorkout, deleteWorkout, userID, userNa
                 <button className='all-delete-workout' onClick={() => deleteWorkout(workout.id)}>Delete</button>
               </div>
             </div>
-        )).reverse()}
+          )).reverse()
+        ) : (
+          <p className='no-workouts-all'>{filteredWorkouts.length === 0 ? "You have no workouts logged" : "No workouts available"}</p>
+        )}
       </div>
     </main>
   )

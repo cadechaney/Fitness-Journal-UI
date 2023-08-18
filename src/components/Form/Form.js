@@ -9,12 +9,14 @@ function Form({ postRequest, userID }) {
     date: '',
     description: '',
     extra: ''
-  })
+  });
+
+  const [needsLogin, setNeedsLogin] = useState(false); // State to track the need to re-log in
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target
-    setFormData((prevData) => ({...prevData, [name]: value}))
-  }
+    const { name, value } = event.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
 
   const handleTextareaChange = (event) => {
     const { name, value } = event.target;
@@ -23,31 +25,54 @@ function Form({ postRequest, userID }) {
 
   const clearInputs = () => {
     setFormData({
-
       userId: userID,
       title: '',
       date: '',
       description: '',
       extra: ''
-    })
-  }
+    });
+  };
+
+  const canSubmit = formData.userId !== '' && formData.id !== '';
+
+  const handleSubmit = async () => {
+    if (!canSubmit) {
+      setNeedsLogin(true); // Set the needsLogin state to true if the user can't submit
+      return;
+    }
+
+    // Reset the needsLogin state if the user can submit
+    setNeedsLogin(false);
+
+    try {
+      await postRequest(formData);
+      clearInputs();
+    } catch (error) {
+      console.error('Error posting workout:', error);
+    }
+  };
 
   return (
     <div className='form-container'>
       <h3>Log Your Workout:</h3>
-      <input 
-        type='text' 
-        name='title' 
+      {needsLogin && (
+        <p className='login-message'>
+          We Apologize, you need to relogin to submit another workout.
+        </p>
+      )}
+      <input
+        type='text'
+        name='title'
         placeholder='Workout Title'
         value={formData.title}
-        onChange={handleInputChange}>
-      </input>
-      <input 
-        type='date' 
-        name='date' 
+        onChange={handleInputChange}
+      />
+      <input
+        type='date'
+        name='date'
         value={formData.date}
-        onChange={handleInputChange}>
-      </input>
+        onChange={handleInputChange}
+      />
       <textarea
         name='description'
         rows={8}
@@ -56,19 +81,18 @@ function Form({ postRequest, userID }) {
         onChange={handleTextareaChange}
         placeholder='Write your workout here...'
       />
-      <input 
-        type='text' 
-        name='extra' 
+      <input
+        type='text'
+        name='extra'
         placeholder='Extra Notes'
         value={formData.extra}
-        onChange={handleInputChange}>
-      </input>
-      <button className='post-button' onClick={() => {
-        postRequest(formData)
-        clearInputs()
-      }}>Log Workout</button>
+        onChange={handleInputChange}
+      />
+      <button className='post-button' onClick={handleSubmit}>
+        Log Workout
+      </button>
     </div>
-  )
+  );
 }
 
-export default Form
+export default Form;
