@@ -11,6 +11,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import SignUp from '../SignUp/SignUp'
 import Settings from '../Settings/Settings'
 import Error from '../Error/Error'
+import MainPage from '../MainPage/MainPage'
 
 function App() {
 
@@ -34,6 +35,12 @@ function App() {
         console.log('Error fetching data', error)
       })
   }, [])
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/');
+    }
+  }, [isAuthenticated]);
 
   const handleLogin = async () => {
     try {
@@ -118,13 +125,15 @@ function App() {
             <Route
               path="/:username/workouts"
               element={
-                <>
-                  <Header />
-                  <div className="app-content">
-                    <Form postRequest={postRequest} userID={userID} />
-                    <ScrollWorkout workouts={workouts} deleteWorkout={deleteWorkout} filterWorkout={filterWorkout} userID={userID} />
-                  </div>
-                </>
+                <MainPage 
+                  postRequest={postRequest} 
+                  userID={userID} 
+                  workouts={workouts} 
+                  deleteWorkout={deleteWorkout} 
+                  filterWorkout={filterWorkout} 
+                  isAuthenticated={isAuthenticated}
+                  fallbackPath='/'
+                />
               }
             />
             <Route
