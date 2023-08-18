@@ -60,3 +60,31 @@ export const deleteWorkoutAPI = async (workoutId) => {
     throw error;
   }
 };
+
+export const signUpUser = async (newUser) => {
+  try {
+    const response = await fetch('/users/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      if (response.status === 409) {
+        const errorData = { error: 'Username already exists' };
+        throw errorData;
+      } else {
+        const errorData = await response.json();
+        throw errorData;
+      }
+    }
+  } catch (error) {
+    console.error('Registration error:', error);
+    throw error;
+  }
+};

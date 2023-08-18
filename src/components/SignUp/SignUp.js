@@ -1,6 +1,7 @@
 import './SignUp.css'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { signUpUser } from '../../apiCalls'
 
 function SignUp() {
   const navigate = useNavigate()
@@ -17,36 +18,12 @@ function SignUp() {
       password,
     };
 
-    // Send POST request to the backend
     try {
-      const response = await fetch('/users/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newUser),
-      });
-  
-      if (response.ok) {
-        // Handle success
-        console.log('User registered successfully');
-        navigate('/');
-        // You can redirect or display a success message here
-      } else {
-        // Handle error
-        if (response.status === 409) {
-          // Username already exists
-          alert('Username already exists. Please choose a different username.');
-          setUsername('');
-          setPassword('');
-        } else {
-          const errorData = await response.json();
-          console.error('Registration error:', errorData.error);
-          // Display an error message to the user
-        }
-      }
-    } catch (error) {
-      console.error('An error occurred:', error);
+      const data = await signUpUser(newUser)
+      console.log('User registered successfully', data)
+      navigate('/')
+    } catch(error) {
+      console.log('An error occurred', error)
     }
   };
 
