@@ -1,10 +1,10 @@
 import './Error.css'
 import React from 'react'
 
-function Error() {
+function Error({ error }) {
 
   return (
-    <p>Error component</p>
+    <p>{error}</p>
   )
 }
 
