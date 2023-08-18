@@ -132,6 +132,10 @@ function App() {
           path='/signup'
           element={<SignUp />}
         />
+        <Route 
+          path='/settings'
+          element={<Settings />}
+        />
       </Routes>
     </div>
   );
