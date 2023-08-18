@@ -6,19 +6,20 @@
 
 .settings-nav-bar {
   border: 2px solid #000000;
+  background-color: #3466AA;
   height: 100%;
   width: 20%;
 }
 
 .delete-account-main {
-  /* border: 2px solid blue; */
   width: 80%;
   display: flex;
   flex-direction: column;
 }
 
 .account-deletion-header {
-  border: 1px solid #000000;
+  border: 2px solid #000000;
+  border-style: solid solid solid none;
   background-color: #3466AA;
   height: 10%;
   width: 100%;
@@ -32,7 +33,6 @@
 }
 
 .account-deletion-form-container {
-  /* border: 2px solid blue; */
   background-image: url('../../assets/snowboard-aw18qz2lcmhdw25k.jpg');
   height: 100%;
   width: 100%;
@@ -42,7 +42,7 @@
 }
 
 .account-deletion-form {
-  border: 1px solid #000000;
+  border: 1.5px solid #000000;
   background-color: #82b7dc;
   height: 30%;
   width: 40%;
@@ -61,4 +61,10 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+
+.delete-account-title-nav {
+  display: flex;
+  justify-content: center;
+  background-color: #82b7dc;
 }
