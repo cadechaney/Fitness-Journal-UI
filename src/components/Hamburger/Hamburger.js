@@ -24,6 +24,9 @@ function HamburgerMenu() {
           <NavLink className='drop-down-option' to='/settings'>
             <img className='settings-image' src={settingsIcon} alt='settings-icon'></img>
           </NavLink>
+          <NavLink className='drop-down-option' to='/'>
+            <p>Log Out</p>
+          </NavLink>
         </div>
       )}
     </div>
