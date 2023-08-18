@@ -135,7 +135,7 @@ function App() {
         />
         <Route 
           path='/settings'
-          element={<Settings />}
+          element={<Settings loggedInID={userID} />}
         />
       </Routes>
     </div>
