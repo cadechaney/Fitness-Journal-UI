@@ -1,11 +1,11 @@
 import './MainPage.css'
 import React from 'react'
-import { Route, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Header from '../Header/Header'
 import Form from '../Form/Form'
 import ScrollWorkout from '../scrollWorkouts/scrollWorkouts'
 
-function MainPage({ postRequest, userID, workouts, deleteWorkout, filterWorkout, isAuthenticated, fallbackPath }) {
+function MainPage({ postRequest, userID, workouts, deleteWorkout, filterWorkout, isAuthenticated }) {
   const navigate = useNavigate()
 
   if (isAuthenticated) {

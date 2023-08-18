@@ -1,9 +1,6 @@
 import './App.css';
 import React, { useEffect, useState } from 'react'
 import { fetchWorkouts, addWorkout, deleteWorkoutAPI, loginUser } from '../../apiCalls'
-import Header from '../Header/Header'
-import ScrollWorkout from '../scrollWorkouts/scrollWorkouts'
-import Form from '../Form/Form'
 import SingleWorkout from '../singleWorkout/singleWorkout'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import AllWorkouts from '../AllWorkouts/AllWorkouts';
@@ -132,7 +129,6 @@ function App() {
                   deleteWorkout={deleteWorkout} 
                   filterWorkout={filterWorkout} 
                   isAuthenticated={isAuthenticated}
-                  fallbackPath='/'
                 />
               }
             />
