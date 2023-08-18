@@ -9,7 +9,7 @@ function scrollWorkout({ workouts, deleteWorkout, filterWorkout, userID }) {
   return (
     <div className='scrollWorkout-container'>
       <p className='weekly-title'>Last 7 Logged Workouts:</p>
-      {workouts.length > 0 ? (
+      {filteredWorkouts.length > 0 ? (
         <section>
           {filteredWorkouts.slice(0, 7).map((workout, index) => (
             <div key={index} onClick={() => filterWorkout(index)} className='single-scroll-workout'>
@@ -28,7 +28,7 @@ function scrollWorkout({ workouts, deleteWorkout, filterWorkout, userID }) {
           )).reverse()}
         </section>
       ) : (
-        <p>{workouts.length === 0 ? "Loading workouts..." : "No workouts available"}</p>
+        <p className='no-workouts-message'>{filteredWorkouts.length === 0 ? "You have no logged workouts" : "No workouts available"}</p>
       )}
     </div>
   )
