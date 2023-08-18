@@ -7,7 +7,6 @@ import AllWorkouts from '../AllWorkouts/AllWorkouts';
 import LoginPage from '../LoginPage/LoginPage';
 import SignUp from '../SignUp/SignUp'
 import Settings from '../Settings/Settings'
-import Error from '../Error/Error'
 import MainPage from '../MainPage/MainPage'
 
 function App() {
@@ -117,6 +116,7 @@ function App() {
             />
           }
         />
+        <Route path="/signup" element={<SignUp />} />
         {isAuthenticated && (
           <>
             <Route
@@ -140,14 +140,13 @@ function App() {
               path="/past/workouts"
               element={<AllWorkouts allWorkouts={workouts} filterWorkout={filterWorkout} deleteWorkout={deleteWorkout} userID={userID} userName={userName} />}
             />
-            <Route path="/signup" element={<SignUp />} />
+            {/* <Route path="/signup" element={<SignUp />} /> */}
             <Route
               path="/settings"
               element={<Settings loggedInUsername={userName} userPassword={userPassword} loggedInUserId={userID} userName={userName} />}
             />
           </>
         )}
-        {error && <Error message={error} />}
       </Routes>
     </div>
   );
