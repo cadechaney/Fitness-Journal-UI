@@ -137,7 +137,7 @@ function App() {
         />
         <Route 
           path='/settings'
-          element={<Settings loggedInUsername={userName} userPassword={userPassword} loggedInUserId={userID}/>}
+          element={<Settings loggedInUsername={userName} userPassword={userPassword} loggedInUserId={userID} userName={userName} />}
         />
       </Routes>
     </div>

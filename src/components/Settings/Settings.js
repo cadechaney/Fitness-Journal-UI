@@ -1,9 +1,10 @@
 import './Settings.css'
 import React, { useState } from 'react'
 import { deleteUserAccount } from '../../apiCalls'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
+import backArrow from '../../assets/arrow+back+back+left+previous+stroke+arrow+icon-1320185739200187742.png'
 
-function Settings({ loggedInUsername, userPassword, loggedInUserId }) {
+function Settings({ loggedInUsername, userPassword, loggedInUserId, userName }) {
 
   const navigate = useNavigate()
   const [inputUsername, setInputUsername] = useState('')
@@ -27,6 +28,9 @@ function Settings({ loggedInUsername, userPassword, loggedInUserId }) {
   return (
     <div className='settings-container'>
       <nav className='settings-nav-bar'>
+        <NavLink className='settings-back-arrow-container' to={`/${userName}/workouts`}>
+          <img className='settings-back-arrow' src={backArrow} alt='back arrow'></img>
+        </NavLink>
         <h4 className='delete-account-title-nav'>Delete Account</h4>
       </nav>
       <main className='delete-account-main'>
