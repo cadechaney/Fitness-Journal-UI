@@ -1,14 +1,17 @@
 import './Settings.css'
 import React from 'react'
 import { deleteUserAccount } from '../../apiCalls'
+import { useNavigate } from 'react-router-dom'
 
 function Settings({ loggedInID }) {
 
+  const navigate = useNavigate()
   
   const handleAccountDelete = async () => {
     
     console.log('username settings', loggedInID)
     deleteUserAccount(loggedInID)
+    navigate('/')
   }
 
   return (
