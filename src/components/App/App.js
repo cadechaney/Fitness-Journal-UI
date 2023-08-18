@@ -10,6 +10,7 @@ import AllWorkouts from '../AllWorkouts/AllWorkouts';
 import LoginPage from '../LoginPage/LoginPage';
 import SignUp from '../SignUp/SignUp'
 import Settings from '../Settings/Settings'
+import Error from '../Error/Error'
 
 function App() {
 
@@ -50,11 +51,6 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   console.log(userID);
-  //   console.log(userName)
-  // }, [userID]);
-
   const postRequest = (newObject) => {
     if(!newObject.title || !newObject.date || !newObject.description) {
       alert('Please fill in all required fields')
@@ -65,9 +61,11 @@ function App() {
       .then(data => {
         console.log('Response', data)
         setWorkouts(data.workouts)
+        setError(null)
       })
       .catch(error => {
         console.log('Error', error)
+        setError('An error occurred while adding the workout')
       })
   };
 
@@ -144,6 +142,7 @@ function App() {
             />
           </>
         )}
+        {error && <Error message={error} />}
       </Routes>
     </div>
   );
