@@ -36,7 +36,7 @@ function AllWorkouts({ allWorkouts, filterWorkout, deleteWorkout, userID, userNa
             </div>
           )).reverse()
         ) : (
-          <p>{filteredWorkouts.length === 0 ? "Log some workouts!" : "No workouts available"}</p>
+          <p className='no-workouts-all'>{filteredWorkouts.length === 0 ? "You have no workouts logged" : "No workouts available"}</p>
         )}
       </div>
     </main>
