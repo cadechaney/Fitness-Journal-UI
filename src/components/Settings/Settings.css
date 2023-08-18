@@ -1,0 +1,12 @@
+.settings-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+}
+
+.settings-nav-bar {
+  border: 2px solid red;
+  height: 100%;
+  width: 20%;
+}
+
