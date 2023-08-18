@@ -4,6 +4,11 @@ import { NavLink } from 'react-router-dom';
 
 function LoginPage({ handleLogin, username, setUsername, password, setPassword, error }) {
 
+  const clearInputs = () => {
+    setUsername('');
+    setPassword('');
+  };
+
   return (
     <div className='login-page'>
       <header className='login-header'>
@@ -25,7 +30,7 @@ function LoginPage({ handleLogin, username, setUsername, password, setPassword, 
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className='login-submit-button' onClick={handleLogin}>Login</button>
+          <button className='login-submit-button' onClick={() => {handleLogin(); clearInputs(); }}>Login</button>
           <section className='sign-up-container'>
             <div></div>
             <NavLink className='sign-up-link' to='/signup'>
