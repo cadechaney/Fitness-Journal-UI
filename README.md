@@ -1,4 +1,4 @@
-<img width="1307" alt="Screenshot 2023-08-19 at 4 10 19 PM" src="https://github.com/cadechaney/Fitness-Journal-UI/assets/121843832/e9ee6af5-1172-4ca6-9ff9-1c14632a9536">#This is the Front End for SweatScript
+#This is the Front End for SweatScript
 ## The link for the Backend is [here]{https://github.com/cadechaney/Fitness-Journal-BE}
 
 #Main Idea for the Project:
