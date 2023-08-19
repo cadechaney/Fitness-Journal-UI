@@ -1,4 +1,4 @@
-# This is the Front End for SweatScript
+# Front End for SweatScript
 ## The link for the Backend is [here](https://github.com/cadechaney/Fitness-Journal-BE)
 
 # Main Idea for the Project:
